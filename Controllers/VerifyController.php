@@ -10,8 +10,7 @@ class VerifyController extends Controller
 		private const MIN_UPPER_CASE = 1;
 		private const MIN_LOWER_CASE = 2;
 		private const MIN_DIGIT = 3;
-		private const MIN_SPECIAL_CHARS = 4;
-		private const NO_REPETED = 5;
+		private const MIN_SPECIAL_CHARS = 4;		
 
 		/**
 		* É a principal função do controller. Recebe a palavra e através de outras funções processa  o resultado e retorna.
@@ -30,7 +29,7 @@ class VerifyController extends Controller
 				$ruleMinLowerCase    = $input->rules[self::MIN_LOWER_CASE]->value ?? 0;
 				$ruleMinDigit 			 = $input->rules[self::MIN_DIGIT]->value ?? 0;
 				$ruleMinSpecialChars = $input->rules[self::MIN_SPECIAL_CHARS]->value ?? 0;
-				$ruleNoRepeted 			 = $input->rules[self::NO_REPETED]->value ?? 0;
+				
 
 				$noMatch = [];
 
@@ -39,8 +38,7 @@ class VerifyController extends Controller
 				$noMatch = self::validateMinLowerCase($password, $ruleMinLowerCase, $noMatch);
 				$noMatch = self::validateMinDigit($password, $ruleMinDigit, $noMatch);
 				$noMatch = self::validateMinSpecialChars($password, $ruleMinSpecialChars, $noMatch);
-
-
+				$noMatch = self::validateNoRepeted($password, $noMatch);
 
 				$verify = $noMatch ? false : true;
 
@@ -119,12 +117,29 @@ class VerifyController extends Controller
 		* @return array
 		*/
 		private function validateMinSpecialChars(string $password, int $minimum, array $noMatchValidate): array
-		{//print $password;
+		{
 				$rule = '/(?=.{'.$minimum.',})[^\w]/';
 				
 				if (!preg_match($rule, $password)) 
 				{
 						array_push($noMatchValidate,'minSpecialChars');
+				}
+
+				return $noMatchValidate;
+		}
+
+		/**
+		* Validates the minimum number of characters upper case in the word
+		*
+		* @return array
+		*/
+		private function validateNoRepeted(string $password, array $noMatchValidate): array
+		{
+				$rule = '/(.)\1+/';
+				
+				if (preg_match($rule, $password)) 
+				{
+						array_push($noMatchValidate,'noRepeted');
 				}
 
 				return $noMatchValidate;
