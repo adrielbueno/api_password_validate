@@ -9,8 +9,8 @@ class VerifyController extends Controller
 		private const MIN_SIZE = 0;
 		private const MIN_UPPER_CASE = 1;
 		private const MIN_LOWER_CASE = 2;
-		private const MIN_SPECIAL_CHARS = 3;
-		private const MIN_DIGIT = 4;
+		private const MIN_DIGIT = 3;
+		private const MIN_SPECIAL_CHARS = 4;
 		private const NO_REPETED = 5;
 
 		/**
@@ -28,16 +28,17 @@ class VerifyController extends Controller
 				$ruleMinSize 				 = $input->rules[self::MIN_SIZE]->value ?? 0;
 				$ruleMinUpperCase 	 = $input->rules[self::MIN_UPPER_CASE]->value ?? 0;
 				$ruleMinLowerCase    = $input->rules[self::MIN_LOWER_CASE]->value ?? 0;
-				$ruleMinSize 				 = $input->rules[self::MIN_SIZE]->value ?? 0;
+				$ruleMinDigit 			 = $input->rules[self::MIN_DIGIT]->value ?? 0;
 				$ruleMinSpecialChars = $input->rules[self::MIN_SPECIAL_CHARS]->value ?? 0;
 				$ruleNoRepeted 			 = $input->rules[self::NO_REPETED]->value ?? 0;
-				$ruleMinDigit  			 = $input->rules[self::MIN_DIGIT]->value ?? 0;
 
 				$noMatch = [];
 
 				$noMatch = self::validateMinSize($password, $ruleMinSize, $noMatch);
 				$noMatch = self::validateMinUpperCase($password, $ruleMinUpperCase, $noMatch);
 				$noMatch = self::validateMinLowerCase($password, $ruleMinLowerCase, $noMatch);
+				$noMatch = self::validateMinDigit($password, $ruleMinDigit, $noMatch);
+				$noMatch = self::validateMinSpecialChars($password, $ruleMinSpecialChars, $noMatch);
 
 
 
@@ -69,7 +70,6 @@ class VerifyController extends Controller
 		*/
 		private function validateMinUpperCase(string $password, int $minimum, array $noMatchValidate): array
 		{
-				//$rule = '/^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$/';
 				$rule = '/^(?=.{'.$minimum.',})(?=.*[A-Z]).*$/';
 				if (!preg_match($rule, $password)) 
 				{
@@ -91,6 +91,40 @@ class VerifyController extends Controller
 				if (!preg_match($rule, $password)) 
 				{
 						array_push($noMatchValidate,'minLowercase');
+				}
+
+				return $noMatchValidate;
+		}
+
+		/**
+		* Validates the minimum number of characters upper case in the word
+		*
+		* @return array
+		*/
+		private function validateMinDigit(string $password, int $minimum, array $noMatchValidate): array
+		{
+				//$rule = '/^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$/';
+				$rule = '/^(?=.{'.$minimum.',})(?=.*[0-9]).*$/';
+				if (!preg_match($rule, $password)) 
+				{
+						array_push($noMatchValidate,'minDigit');
+				}
+
+				return $noMatchValidate;
+		}
+
+		/**
+		* Validates the minimum number of characters upper case in the word
+		*
+		* @return array
+		*/
+		private function validateMinSpecialChars(string $password, int $minimum, array $noMatchValidate): array
+		{//print $password;
+				$rule = '/(?=.{'.$minimum.',})[^\w]/';
+				
+				if (!preg_match($rule, $password)) 
+				{
+						array_push($noMatchValidate,'minSpecialChars');
 				}
 
 				return $noMatchValidate;
