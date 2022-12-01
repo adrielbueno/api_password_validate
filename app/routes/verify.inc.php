@@ -7,4 +7,4 @@ use App\Core\Handlers\Router\Router;
 
 $router = Router::getInstance();
 
-$router->post('/verify', fn (Request $request) => (new VerifyController())->teste($request->getJson()));
+$router->post('/verify', fn (Request $request) => (new VerifyController())->validatePassword($request->getObj()));
