@@ -5,7 +5,7 @@ namespace App\Core\Handlers\Response;
 class ResponseHandler
 {
     /**
-     * Displays a message in json format dealing with the Content-Type 
+     * Displays a message in json format dealing with the Content-Type
      * and status code of the request header
      *
      * @param int $httpCode
@@ -21,7 +21,7 @@ class ResponseHandler
     }
 
     /**
-     * Return a json dealing with the Content-Type 
+     * Return a json dealing with the Content-Type
      * and status code of the request header
      *
      * @param int $httpCode

@@ -4,7 +4,6 @@ namespace App\Core\Utils;
 
 class Str
 {
-
     /**
      * Format the url to a pattern
      *

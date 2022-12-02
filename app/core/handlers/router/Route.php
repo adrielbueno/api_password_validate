@@ -19,7 +19,7 @@ class Route
 
     /**
      * Returns the callback
-     * 
+     *
      * @return Closure
      */
     public function getCallback(): Closure

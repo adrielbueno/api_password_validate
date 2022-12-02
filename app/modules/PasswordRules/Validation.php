@@ -19,12 +19,12 @@ class Validation
 
     /**
      * Validate the password with a list of rules
-     * 
+     *
      * @param string $password
      * @param array $rulesList
      * @return array
      */
-    public  function validatePasswordWithRules(string $password, array $rulesList): array
+    public function validatePasswordWithRules(string $password, array $rulesList): array
     {
         return array_reduce($rulesList, function ($carry, $rule) use ($password) {
             $nameRule     = $rule->rule;
