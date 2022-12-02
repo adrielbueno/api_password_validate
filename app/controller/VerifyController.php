@@ -7,12 +7,6 @@ use App\Modules\PasswordRules\Validation;
 
 class VerifyController
 {
-
-    public function __construct()
-    {
-    }
-    
-
     /**
      * É a principal função do controller. Recebe a palavra e através de outras funções processa  o resultado e retorna.
      *

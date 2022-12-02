@@ -36,7 +36,7 @@ class Validation
             if(!$this->$nameFunction($password, $minimumValue))
             {
                 array_push($noMatch, $nameRule);
-            }
+            }            
         }
 
         return $noMatch;
