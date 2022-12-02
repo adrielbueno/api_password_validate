@@ -24,7 +24,7 @@ class Validation
      * @param array $rulesList
      * @return array
      */
-    private function validatePasswordWithRules(string $password, array $rulesList): array
+    public static function validatePasswordWithRules(string $password, array $rulesList): array
     {
         $noMatch = [];
 
@@ -34,7 +34,7 @@ class Validation
 
             $nameFunction = self::DYNAMIC_MAPPING_RULES[$nameRule];
 
-            if(!$this->$nameFunction($password, $minimumValue))
+            if(!self::$nameFunction($password, $minimumValue))
             {
                 array_push($noMatch, $nameRule);
             }
