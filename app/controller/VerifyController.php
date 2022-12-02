@@ -23,6 +23,6 @@ class VerifyController
 
         $verify = $noMatch ? false : true;
 
-        return Response::getJson('S2A3-001', 200, ["verify" => $verify, "noMatch" => $noMatch]);
+        return Response::getJson(200, ["verify" => $verify, "noMatch" => $noMatch]);
     }
 }

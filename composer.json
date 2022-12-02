@@ -16,7 +16,6 @@
             "App\\Core\\Handlers\\Response\\": "app\/core\/handlers\/response\/",
             "App\\Core\\Handlers\\Router\\": "app\/core\/handlers\/router\/",
             "App\\Core\\Utils\\": "app\/core\/utils\/",
-            "App\\Messages\\": "app\/messages\/",
             "App\\Routes\\": "app\/routes\/",
             "Modules\\": "app\/modules\/"
         }

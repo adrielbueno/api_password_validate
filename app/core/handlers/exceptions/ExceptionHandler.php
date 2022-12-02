@@ -9,19 +9,16 @@ use Throwable;
 class ExceptionHandler
 {
     protected Throwable $exception;
-    protected string $messageCode;
     protected string $statusCode;
     protected Response $response;
     protected array $data;
 
     public function __construct(
-        Throwable $exception,
-        string $messageCode = "",
+        Throwable $exception,        
         int $statusCode = 500,
         array $data = []
     ) {
-        $this->exception = $exception;
-        $this->messageCode = $messageCode;
+        $this->exception = $exception;        
         $this->statusCode = $statusCode;
         $this->response = new Response();
         $this->data = $data;
@@ -37,7 +34,6 @@ class ExceptionHandler
         $payload = $this->details();
 
         $this->response->printJson(
-            $this->messageCode,
             $this->statusCode,
             $payload
         );
@@ -48,8 +44,7 @@ class ExceptionHandler
         $details["dateTime"] = date('y-m-d H:i:s');
         $details["details"] = [
             "file"    => $this->exception->getFile(),
-            "line"    => $this->exception->getLine(),
-            "message" => $this->exception->getMessage(),
+            "line"    => $this->exception->getLine(),            
             "code"    => $this->exception->getCode(),
             "trace"   => $this->exception->getTrace()
         ];
@@ -59,33 +54,9 @@ class ExceptionHandler
         }
 
         if ($this->exception instanceof DefaultException) {
-            $this->statusCode = 400;
-            $details["mensagem"] = $this->chainMessages($this->exception);
+            $this->statusCode = 400;            
         }
 
         return $details;
-    }
-
-    /**
-     * Encadeia as mensagens de exceptions
-     *
-     * @param Throwable $thrown
-     * @return string
-     */
-    private function chainMessages(Throwable $thrown): string
-    {
-        $message = trim($thrown->getMessage());
-        if ($thrown->getPrevious() !== null) {
-            if (in_array(substr($message, -1), ['.', '!'])) {
-                $message = substr($message, 0, -1);
-            }
-            $message .= ". "  . $this->chainMessages($thrown->getPrevious());
-        }
-
-        if (!in_array(substr($message, -1), ['.', '!'])) {
-            $message .= ".";
-        }
-
-        return trim($message);
     }
 }

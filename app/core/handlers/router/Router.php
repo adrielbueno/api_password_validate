@@ -29,7 +29,7 @@ class Router
     }
 
     /**
-     * @author Jonas Vicente
+
      * @param string $url Endpoint para ser adicionado às rotas GET do sistema
      * @param Closure $callback
      * @return Route
@@ -40,7 +40,7 @@ class Router
     }
 
     /**
-     * @author Jonas Vicente
+
      * @param string $url Endpoint para ser adicionado às rotas POST do sistema
      * @param Closure $callback
      * @return Route
@@ -51,7 +51,7 @@ class Router
     }
 
     /**
-     * @author Jonas Vicente
+
      * @param string $url Endpoint para ser adicionado às rotas PUT do sistema
      * @param Closure $callback
      * @return Route
@@ -62,7 +62,7 @@ class Router
     }
 
     /**
-     * @author Jonas Vicente
+
      * @param string $url Endpoint para ser adicionado às rotas DELETE do sistema
      * @param Closure $callback
      * @return Route
@@ -73,7 +73,7 @@ class Router
     }
 
     /**
-     * @author Jonas Vicente
+
      * @param string $url Endpoint para ser adicionado às rotas PATCH do sistema
      * @param Closure $callback
      * @return Route
@@ -84,7 +84,7 @@ class Router
     }
 
     /**
-     * @author Jonas Vicente
+
      * @param string $url Endpoint para ser adicionado às rotas
      * @param Closure $callback
      * @return Route
@@ -107,7 +107,7 @@ class Router
 
     /**
      * Registra as rotas no sistema
-     * @author Jonas Vicente
+
      * @param string $url
      * @param Closure $callback
      * @param string $method

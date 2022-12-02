@@ -13,7 +13,7 @@ require_once 'app/core/config/server.php';
 register_shutdown_function('catch_fatal_error');
 
 /** Inclui os arquivos de mensageria */
-requireMessagesFiles();
+
 
 require_once 'app/core/handlers/middlewares/Validacao.php';
 
@@ -23,5 +23,5 @@ requireRouteFiles();
 try {
     (new App\Core\Handlers\Router\Runner())->run();
 } catch (\Throwable $th) {
-    (new App\Core\Handlers\Exceptions\ExceptionHandler($th, 'D000-001'))->print();
+    (new App\Core\Handlers\Exceptions\ExceptionHandler($th))->print();
 }

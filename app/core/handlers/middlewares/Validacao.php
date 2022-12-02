@@ -1,7 +1,5 @@
 <?php
 
-use App\Core\Handlers\Middlewares\Seguranca;
-
 $request = App\Core\Handlers\Request\RequestHandler::getInstance();
 
 $json = file_get_contents('php://input');

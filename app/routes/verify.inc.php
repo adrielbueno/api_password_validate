@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Controller\VerifyController;
 use App\Core\Handlers\Request\RequestHandler as Request;
 use App\Core\Handlers\Router\Router;

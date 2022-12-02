@@ -103,7 +103,7 @@ function catch_fatal_error(): void
             $message = count($auxArray) > 1 ? $auxArray : $auxArray[0];
         }
 
-        App\Core\Handlers\Response\ResponseHandler::printJson('E000-000', 500, ["error" => [
+        App\Core\Handlers\Response\ResponseHandler::printJson(500, ["error" => [
             "arquivo"  => $file,
             "linha"    => $fileLine,
             "mensagem" => $message,

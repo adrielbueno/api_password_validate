@@ -81,6 +81,6 @@ class Runner
             }
         }
 
-        ResponseHandler::printJson('E000-001', 404);
+        ResponseHandler::printJson(404, ["message" => "Algo inesperado aconteceu."]);
     }
 }
