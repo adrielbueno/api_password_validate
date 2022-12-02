@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "660555d9-622a-46af-a8db-d8b5de8807de",
+		"name": "Api Verify",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15909607"
+	},
+	"item": [
+		{
+			"name": "verify",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"abcD2!@#$%^&*()-+\\\\/{}[]\",\r\n    \"rules\": [\r\n        {\"rule\": \"minSize\",\"value\": 3},\r\n        {\"rule\": \"minUpperCase\",\"value\": 1},\r\n        {\"rule\": \"minLowerCase\",\"value\": 1},\r\n        {\"rule\": \"minDigit\",\"value\": 1},\r\n        {\"rule\": \"minSpecialChars\",\"value\": 18},\r\n        {\"rule\": \"noRepeted\",\"value\": 0}\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/projetos/api_password_validate/verify",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"projetos",
+						"api_password_validate",
+						"verify"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
