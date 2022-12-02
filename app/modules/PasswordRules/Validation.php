@@ -25,21 +25,13 @@ class Validation
      */
     public  function validatePasswordWithRules(string $password, array $rulesList): array
     {
-        $noMatch = [];
-        // teste
-        foreach ($rulesList as $rule) {
+        return  array_filter($rulesList, function($rule) use($password) {
             $nameRule    = $rule->rule;
             $minimumValue = $rule->value;
-
             $nameFunction = self::DYNAMIC_MAPPING_RULES[$nameRule];
+            return !$this->$nameFunction($password, $minimumValue);
+        } );
 
-            if(!$this->$nameFunction($password, $minimumValue))
-            {
-                array_push($noMatch, $nameRule);
-            }            
-        }
-
-        return $noMatch;
     }
 
     /**
