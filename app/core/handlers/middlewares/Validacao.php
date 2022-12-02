@@ -4,10 +4,10 @@ use App\Core\Handlers\Middlewares\Seguranca;
 
 $request = App\Core\Handlers\Request\RequestHandler::getInstance();
 
+$json = file_get_contents('php://input');
+
 if ($request->getMethod() === 'GET') {
     $json = json_encode($_GET);
-} else {
-    $json = file_get_contents('php://input');
 }
 
 $header = $request->lowerCaseHeader();
