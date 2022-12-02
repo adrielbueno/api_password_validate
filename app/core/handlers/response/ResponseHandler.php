@@ -106,10 +106,4 @@ class ResponseHandler
     {
         header('HTTP/1.0 204');
     }
-
-    public static function pdfFile(string $fileName, string $content): void
-    {
-        ResponseHeader::pdfFile("$fileName.pdf");
-        echo $content;
-    }
 }

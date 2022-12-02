@@ -15,7 +15,3 @@ $header = $request->lowerCaseHeader();
 $requisicao = substr($_GET['url'], -1) === '/'
     ? '/' . $_GET['url'] . $_SERVER['REQUEST_METHOD']
     : '/' . $_GET['url'] . '/' . $_SERVER['REQUEST_METHOD'];
-
-
-
-$json = Seguranca::noInjection($GLOBALS['json']);

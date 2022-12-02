@@ -39,21 +39,6 @@ class RequestHandler
     public function getData(): array
     {
         return json_decode($this->getJson(), 1) ?? [];
-        /**
-         * switch (self::getMethod()) {
-         *    case 'GET':
-         *       return $_GET;
-         *    case 'POST':
-         *       $data = json_decode(file_get_contents('php://input'), 1);
-         *       if (is_null($data))  $data = $_POST;
-         *       if (!empty($_FILES)) $data = array_merge($data, $_FILES);
-         *       return (array) $data;
-         *    default:
-         *       $data = json_decode(file_get_contents('php://input'), 1);
-         *       if (is_null($data)) $data = $_POST;
-         *       return (array) $data;
-         * }
-         */
     }
 
     /**

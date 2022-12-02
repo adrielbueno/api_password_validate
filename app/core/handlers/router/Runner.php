@@ -2,12 +2,9 @@
 
 namespace App\Core\Handlers\Router;
 
-use App\Core\Handlers\Middlewares\MiddlewareRunner;
 use App\Core\Handlers\Request\RequestHandler as Request;
 use App\Core\Handlers\Response\ResponseHandler;
 use App\Core\Utils\Str;
-use App\Modules\IpValidator\IpValidator;
-use App\Modules\RouteValidator\RouteValidator;
 
 class Runner
 {
@@ -26,15 +23,11 @@ class Runner
 
     /**
      * Executa o projeto
-     * @author Jonas Vicente
+     *
      * @return void
      */
     public function run(): void
     {
-        $middleware = new MiddlewareRunner();
-
-       
-
         $route  = $this->getRoute();
         $params = [];
 
@@ -46,13 +39,11 @@ class Runner
 
         $params[] = $this->request;
 
-        $middleware->before($route);
         echo call_user_func_array($route->getCallback(), $params);
-        $middleware->after($route);
     }
 
     /**
-     * @author Jonas Vicente
+     *
      * @return Route
      */
     private function getRoute(): Route

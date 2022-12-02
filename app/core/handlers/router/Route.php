@@ -2,7 +2,6 @@
 
 namespace App\Core\Handlers\Router;
 
-use App\Core\Handlers\Middlewares\Middleware;
 use Closure;
 
 class Route
@@ -21,17 +20,5 @@ class Route
     public function getCallback()
     {
         return $this->callback;
-    }
-
-    public function before(Middleware $middleware)
-    {
-        $this->before[] = $middleware;
-        return $this;
-    }
-
-    public function after(Middleware $middleware)
-    {
-        $this->after[] = $middleware;
-        return $this;
     }
 }
