@@ -4,6 +4,7 @@ namespace App\Modules\PasswordRules;
 
 use App\Modules\PasswordRules\Expressions;
 use App\Modules\PasswordRules\Types;
+use App\Core\Utils\Str;
 
 class Validation
 {
@@ -90,7 +91,7 @@ class Validation
     {
         $rule = Expressions::getExpressionWithMinimum(Types::MIN_DIGIT, $minimum);
 
-        return preg_match($rule, $password);
+        return preg_match($rule, Str::getOnlyNumbers($password));
     }
 
     /**
