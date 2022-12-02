@@ -3,114 +3,95 @@
 namespace App\Modules\PasswordRules;
 
 use App\Modules\PasswordRules\Expressions;
+use App\Modules\PasswordRules\Types;
+
 
 class Validation
 {
     /**
      * Validates the minimum number of characters in the word
-     *
-     * @return array
+     *aqui
+     * @param string $password
+     * @param int $minimum
+     * @return bool
      */
-    private function validateMinSize(string $password, int $minimum, array $noMatchValidate): array
+    private function validateMinSize(string $password, int $minimum): bool
     {
-        $rule = '/^(?=.{' . $minimum . ',}).*$/';
-        if (!preg_match($rule, $password)) {
-            array_push($noMatchValidate, 'minSize');
-        }
+        $rule = Expressions::getExpressionWithMinimum(Types::MIN_SIZE, $minimum);
 
-        return $noMatchValidate;
+        return preg_match($rule, $password);
     }
 
     /**
      * Validates the minimum number of characters upper case in the word
-     *
-     * @return array
+     *aqui
+     * @param string $password
+     * @param int $minimum
+     * @return bool
      */
-    private function validateMinUpperCase(string $password, int $minimum, array $noMatchValidate): array
+    private function validateMinUpperCase(string $password, int $minimum): bool
     {
-        $rule = '/^(?=.{' . $minimum . ',})(?=.*[A-Z]).*$/';
-        if (!preg_match($rule, $password)) {
-            array_push($noMatchValidate, 'minUppercase');
-        }
+        $rule = Expressions::getExpressionWithMinimum(Types::MIN_UPPER_CASE, $minimum);
 
-        return $noMatchValidate;
+        return preg_match($rule, $password);
     }
 
     /**
      * Validates the minimum number of characters upper case in the word
-     *
-     * @return array
+     *aqui
+     * @param string $password
+     * @param int $minimum
+     * @return bool
      */
-    private function validateMinLowerCase(string $password, int $minimum, array $noMatchValidate): array
+    private function validateMinLowerCase(string $password, int $minimum): bool
     {
-        //$rule = '/^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$/';
-        $rule = '/^(?=.{' . $minimum . ',})(?=.*[a-z]).*$/';
-        if (!preg_match($rule, $password)) {
-            array_push($noMatchValidate, 'minLowercase');
-        }
+        $rule = Expressions::getExpressionWithMinimum(Types::MIN_LOWER_CASE, $minimum);
 
-        return $noMatchValidate;
+        return preg_match($rule, $password);
     }
 
     /**
      * Validates the minimum number of characters upper case in the word
-     *
-     * @return array
+     *aqui
+     * @param string $password
+     * @param int $minimum
+     * @return bool
      */
-    private function validateMinDigit(string $password, int $minimum, array $noMatchValidate): array
+    private function validateMinDigit(string $password, int $minimum): bool
     {
-        //$rule = '/^(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$/';
-        $rule = '/^(?=.{' . $minimum . ',})(?=.*[0-9]).*$/';
-        if (!preg_match($rule, $password)) {
-            array_push($noMatchValidate, 'minDigit');
-        }
+        $rule = Expressions::getExpressionWithMinimum(Types::MIN_DIGIT, $minimum);
 
-        return $noMatchValidate;
+        return preg_match($rule, $password);
     }
 
     /**
      * Validates the minimum number of characters upper case in the word
-     *
-     * @return array
+     *aqui
+     * @param string $password
+     * @param int $minimum
+     * @return bool
      */
-    private function validateMinSpecialChars(string $password, int $minimum, array $noMatchValidate): array
+    private function validateMinSpecialChars(string $password, int $minimum): bool
     {
-        $rule = '/(?=.{' . $minimum . ',})[^\w]/';
+        $rule = Expressions::getExpressionWithMinimum(Types::MIN_SPECIAL_CHARS, $minimum);
 
-        if (!preg_match($rule, $password)) {
-            array_push($noMatchValidate, 'minSpecialChars');
-        }
-
-        return $noMatchValidate;
+        return preg_match($rule, $password);
     }
 
     /**
      * Validates the minimum number of characters upper case in the word
-     *
-     * @return array
+     *aqui
+     * @param string $password
+     * @return bool
      */
-    private function validateNoRepeted(string $password, array $noMatchValidate): array
+    private function validateNoRepeted(string $password): bool
     {
-        $rule = '/(.)\1+/';
+        $rule = Expressions::getExpression(Types::NO_REPEAT);
 
-        if (preg_match($rule, $password)) {
-            array_push($noMatchValidate, 'noRepeted');
-        }
-
-        return $noMatchValidate;
+        return !preg_match($rule, $password);
     }
 
-    /**
-     * Validates the minimum number of characters upper case in the word
-     *
-     * @return string
-     */
-    private function getExpressionWithMinimum(string $rule, string $minimum): string
-    {
-        $expression = str_replace("minimum", $minimum, Expressions::getExpression($rule));
-
-        return $expression;
-    }
+    
 
 
 }

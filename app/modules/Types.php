@@ -9,5 +9,5 @@ class Types
     public const MIN_LOWER_CASE    = 'minLowercase';
     public const MIN_DIGIT         = 'minDigit';
     public const MIN_SPECIAL_CHARS = 'minSpecialChars';
-    public const NO_REPEAT         = 'noRepeted';   
+    public const NO_REPEAT         = 'noRepeted';
 }

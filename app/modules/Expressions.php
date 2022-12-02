@@ -13,12 +13,34 @@ class Expressions
     private const EXPRESSION_MIN_SPECIAL_CHARS = '/(?=.{minimum,})[^\w]/';
     private const EXPRESSION_NO_REPEAT         = '/(.)\1+/';
 
-    public static function getExpression(string $rule): string
+    /**
+     * aqui
+     *
+     * @return string
+     */
+    public static function getExpressionWithMinimum(string $rule, string $minimum): string
     {
-        return self::getArrayExpresions()[$rule];
+        $expression = str_replace("minimum", $minimum, self::getExpression($rule));
+
+        return $expression;
     }
 
-    private function getArrayExpresions(): array
+    /**
+     * aqui
+     *
+     * @return string
+     */
+    public static function getExpression(string $rule): string
+    {
+        return self::getAllExpressions()[$rule];
+    }
+
+    /**
+     * aqui
+     *
+     * @return array
+     */
+    private function getAllExpressions(): array
     {
         return [
             Types::MIN_SIZE          => self::EXPRESSION_MIN_SIZE,
