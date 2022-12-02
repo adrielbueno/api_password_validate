@@ -5,7 +5,6 @@ namespace App\Modules\PasswordRules;
 use App\Modules\PasswordRules\Expressions;
 use App\Modules\PasswordRules\Types;
 
-
 class Validation
 {
     private const DYNAMIC_MAPPING_RULES = [
@@ -24,7 +23,7 @@ class Validation
      * @param array $rulesList
      * @return array
      */
-    public static function validatePasswordWithRules(string $password, array $rulesList): array
+    public  function validatePasswordWithRules(string $password, array $rulesList): array
     {
         $noMatch = [];
 
@@ -34,7 +33,7 @@ class Validation
 
             $nameFunction = self::DYNAMIC_MAPPING_RULES[$nameRule];
 
-            if(!self::$nameFunction($password, $minimumValue))
+            if(!$this->$nameFunction($password, $minimumValue))
             {
                 array_push($noMatch, $nameRule);
             }

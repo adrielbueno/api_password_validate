@@ -36,53 +36,10 @@ class ComposerStaticInitba1d68e5903aa01a72235ffc26c451f3
         'C' => 
         array (
             'Complex\\' => 8,
-            'CLI\\' => 4,
         ),
         'A' => 
         array (
-            'App\\View\\' => 9,
-            'App\\Services\\WebcredOnboarding\\' => 31,
-            'App\\Services\\Utils\\Webcred\\' => 27,
-            'App\\Services\\Utils\\Telenet\\' => 27,
-            'App\\Services\\Utils\\Hubfintech\\' => 30,
-            'App\\Services\\Utils\\Celcoin\\' => 27,
-            'App\\Services\\Utils\\Bmp\\' => 23,
-            'App\\Services\\Utils\\' => 19,
-            'App\\Services\\TransferenciaTed\\Products\\' => 39,
-            'App\\Services\\TransferenciaTed\\' => 30,
-            'App\\Services\\TransferenciaP2P\\Products\\' => 39,
-            'App\\Services\\TransferenciaP2P\\' => 30,
-            'App\\Services\\Transacao\\Products\\' => 32,
-            'App\\Services\\Transacao\\' => 23,
-            'App\\Services\\Recargas\\Products\\' => 31,
-            'App\\Services\\Recargas\\' => 22,
-            'App\\Services\\PixLimites\\Products\\' => 33,
-            'App\\Services\\PixLimites\\' => 24,
-            'App\\Services\\PixChaves\\Products\\' => 32,
-            'App\\Services\\PixChaves\\' => 23,
-            'App\\Services\\PixCashOut\\Products\\' => 33,
-            'App\\Services\\PixCashOut\\' => 24,
-            'App\\Services\\PixCashIn\\Products\\' => 32,
-            'App\\Services\\PixCashIn\\' => 23,
-            'App\\Services\\PagamentoBoleto\\Products\\' => 38,
-            'App\\Services\\PagamentoBoleto\\' => 29,
-            'App\\Services\\ContaBacen\\Products\\' => 33,
-            'App\\Services\\ContaBacen\\' => 24,
-            'App\\Services\\Cedente\\Products\\' => 30,
-            'App\\Services\\Cedente\\' => 21,
-            'App\\Services\\Carteira\\Products\\' => 31,
-            'App\\Services\\Carteira\\' => 22,
-            'App\\Services\\Cartao\\Products\\' => 29,
-            'App\\Services\\Cartao\\' => 20,
-            'App\\Services\\CartaoConvenio\\Products\\' => 37,
-            'App\\Services\\CartaoConvenio\\' => 28,
-            'App\\Services\\BoletoCashIn\\Products\\' => 35,
-            'App\\Services\\BoletoCashIn\\' => 26,
-            'App\\Services\\Autocontratacao\\Models\\' => 36,
-            'App\\Services\\Autocontratacao\\' => 29,
-            'App\\Services\\' => 13,
             'App\\Routes\\' => 11,
-            'App\\Model\\' => 10,
             'App\\Middlewares\\' => 16,
             'App\\Messages\\' => 13,
             'App\\Core\\Utils\\' => 15,
@@ -121,8 +78,8 @@ class ComposerStaticInitba1d68e5903aa01a72235ffc26c451f3
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -148,181 +105,9 @@ class ComposerStaticInitba1d68e5903aa01a72235ffc26c451f3
         array (
             0 => __DIR__ . '/..' . '/markbaker/complex/classes/src',
         ),
-        'CLI\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/cli',
-        ),
-        'App\\View\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/view',
-        ),
-        'App\\Services\\WebcredOnboarding\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/webcredOnboarding',
-        ),
-        'App\\Services\\Utils\\Webcred\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/utils/webcred',
-        ),
-        'App\\Services\\Utils\\Telenet\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/utils/telenet',
-        ),
-        'App\\Services\\Utils\\Hubfintech\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/utils/hubfintech',
-        ),
-        'App\\Services\\Utils\\Celcoin\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/utils/celcoin',
-        ),
-        'App\\Services\\Utils\\Bmp\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/utils/bmp',
-        ),
-        'App\\Services\\Utils\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/utils',
-        ),
-        'App\\Services\\TransferenciaTed\\Products\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/transferenciaTed/products',
-        ),
-        'App\\Services\\TransferenciaTed\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/transferenciaTed',
-        ),
-        'App\\Services\\TransferenciaP2P\\Products\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/transferenciaP2P/products',
-        ),
-        'App\\Services\\TransferenciaP2P\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/transferenciaP2P',
-        ),
-        'App\\Services\\Transacao\\Products\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/transacao/products',
-        ),
-        'App\\Services\\Transacao\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/transacao',
-        ),
-        'App\\Services\\Recargas\\Products\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/recargas/products',
-        ),
-        'App\\Services\\Recargas\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/recargas',
-        ),
-        'App\\Services\\PixLimites\\Products\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/pixLimites/products',
-        ),
-        'App\\Services\\PixLimites\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/pixLimites',
-        ),
-        'App\\Services\\PixChaves\\Products\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/pixChaves/products',
-        ),
-        'App\\Services\\PixChaves\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/pixChaves',
-        ),
-        'App\\Services\\PixCashOut\\Products\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/pixCashOut/products',
-        ),
-        'App\\Services\\PixCashOut\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/pixCashOut',
-        ),
-        'App\\Services\\PixCashIn\\Products\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/pixCashIn/products',
-        ),
-        'App\\Services\\PixCashIn\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/pixCashIn',
-        ),
-        'App\\Services\\PagamentoBoleto\\Products\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/pagamentoBoleto/products',
-        ),
-        'App\\Services\\PagamentoBoleto\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/pagamentoBoleto',
-        ),
-        'App\\Services\\ContaBacen\\Products\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/contaBacen/products',
-        ),
-        'App\\Services\\ContaBacen\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/contaBacen',
-        ),
-        'App\\Services\\Cedente\\Products\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/cedente/products',
-        ),
-        'App\\Services\\Cedente\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/cedente',
-        ),
-        'App\\Services\\Carteira\\Products\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/carteira/products',
-        ),
-        'App\\Services\\Carteira\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/carteira',
-        ),
-        'App\\Services\\Cartao\\Products\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/cartao/products',
-        ),
-        'App\\Services\\Cartao\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/cartao',
-        ),
-        'App\\Services\\CartaoConvenio\\Products\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/cartaoConvenio/products',
-        ),
-        'App\\Services\\CartaoConvenio\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/cartaoConvenio',
-        ),
-        'App\\Services\\BoletoCashIn\\Products\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/boletoCashIn/products',
-        ),
-        'App\\Services\\BoletoCashIn\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/boletoCashIn',
-        ),
-        'App\\Services\\Autocontratacao\\Models\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/autocontratacao/models',
-        ),
-        'App\\Services\\Autocontratacao\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services/autocontratacao',
-        ),
-        'App\\Services\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/services',
-        ),
         'App\\Routes\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app/routes',
-        ),
-        'App\\Model\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app/model',
         ),
         'App\\Middlewares\\' => 
         array (

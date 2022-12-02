@@ -21,9 +21,11 @@ class VerifyController
     public function validatePassword($input): string
     {
         $password  = $input->password;
-        $rulesList = $input->rules;        
+        $rulesList = $input->rules;
 
-        $noMatch = Validation::validatePasswordWithRules($password, $rulesList);       
+        $validation = new Validation();
+
+        $noMatch = $validation->validatePasswordWithRules($password, $rulesList);       
 
         $verify = $noMatch ? false : true;
 
