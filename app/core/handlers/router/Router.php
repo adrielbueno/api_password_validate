@@ -16,21 +16,32 @@ class Router
     {
     }
 
-    public static function getInstance()
+    /**
+     * Returns an instance of Router
+     *
+     * @return Router
+     */
+    public static function getInstance(): Router
     {
         self::$instance ??= new Router();
         self::$request = RequestHandler::getInstance();
+
         return self::$instance;
     }
 
+    /**
+     * Returns the routes
+     *
+     * @return array
+     */
     public function getRoutes(bool $withPathParams): array
     {
         return self::$routes[self::$request->getMethod()][$withPathParams] ?? [];
     }
 
     /**
-
-     * @param string $url Endpoint para ser adicionado às rotas GET do sistema
+     * Defines the route verb
+     * @param string $url Endpoint to be added to system GET routes
      * @param Closure $callback
      * @return Route
      */
@@ -40,8 +51,8 @@ class Router
     }
 
     /**
-
-     * @param string $url Endpoint para ser adicionado às rotas POST do sistema
+     * Defines the route verb
+     * @param string $url Endpoint to be added to system POST routes
      * @param Closure $callback
      * @return Route
      */
@@ -51,8 +62,8 @@ class Router
     }
 
     /**
-
-     * @param string $url Endpoint para ser adicionado às rotas PUT do sistema
+     * Defines the route verb
+     * @param string $url Endpoint to be added to system PUT routes
      * @param Closure $callback
      * @return Route
      */
@@ -62,8 +73,8 @@ class Router
     }
 
     /**
-
-     * @param string $url Endpoint para ser adicionado às rotas DELETE do sistema
+     * Defines the route verb
+     * @param string $url Endpoint to be added to system DELETE routes
      * @param Closure $callback
      * @return Route
      */
@@ -73,8 +84,8 @@ class Router
     }
 
     /**
-
-     * @param string $url Endpoint para ser adicionado às rotas PATCH do sistema
+     * Defines the route verb
+     * @param string $url Endpoint to be added to system PATCH routes
      * @param Closure $callback
      * @return Route
      */
@@ -84,12 +95,12 @@ class Router
     }
 
     /**
-
-     * @param string $url Endpoint para ser adicionado às rotas
+     * Defines the route verb
+     * @param string $url Endpoint to be added to system ANY routes
      * @param Closure $callback
      * @return Route
      */
-    public function any($url, $callback)
+    public function any($url, $callback): Route
     {
         switch (self::$request->getMethod()) {
             case 'GET':
@@ -106,11 +117,12 @@ class Router
     }
 
     /**
-     * Registra as rotas no sistema
-
+     * Register routes in the system
+     *
      * @param string $url
      * @param Closure $callback
      * @param string $method
+     *
      * @return Route
      */
     private function addRoute(string $url, Closure $callback, string $method): Route

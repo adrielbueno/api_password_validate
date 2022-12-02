@@ -2,15 +2,15 @@
 
 namespace App\Core\Handlers\Response;
 
-use App\Core\Handlers\Request\RequestHandler as Request;
-
 class ResponseHandler
 {
     /**
-     * Exibe uma mensagem em formato json já tratando o Content-Type e o status code do header da requisição
-     * @param string $cod Código da mensagem
+     * Displays a message in json format dealing with the Content-Type 
+     * and status code of the request header
+     *
      * @param int $httpCode
-     * @param array $payload informações que possam ser necessárias
+     * @param array $payload information that may be needed in the response
+     *
      * @return void
      */
     public static function printJson(int $httpCode = 200, array $payload = []): void
@@ -21,9 +21,12 @@ class ResponseHandler
     }
 
     /**
-     * @param string $cod
-     * @param integer $httpCode
-     * @param array $payload
+     * Return a json dealing with the Content-Type 
+     * and status code of the request header
+     *
+     * @param int $httpCode
+     * @param array $payload information that may be needed in the response
+     *
      * @return string
      */
     public static function getJson(int $httpCode = 200, array $payload = []): string
@@ -31,5 +34,4 @@ class ResponseHandler
         header('Content-Type: application/json', true, $httpCode);
         return json_encode($payload);
     }
-
 }

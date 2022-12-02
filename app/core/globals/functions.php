@@ -1,16 +1,6 @@
 <?php
 
 /**
- * Require message files
- *
- * @return void
- */
-function requireMessagesFiles(): void
-{
-    recursiveRequire('app/messages/');
-}
-
-/**
  * Require route files
  *
  * @return void
@@ -21,7 +11,7 @@ function requireRouteFiles(): void
 }
 
 /**
- * Inclui os arquivos recursivamente em uma determinada pasta
+ * Include files recursively in a given folder
  *
  * @param string $dir
  * @return void
@@ -35,21 +25,10 @@ function recursiveRequire(string $dir): void
     }
 }
 
-/**
- * Ativa os logs do PHP
- *
- * @return void
- */
-function debug()
-{
-    ini_set('display_errors', 1);
-    ini_set('display_startup_erros', 1);
-    error_reporting(E_ALL);
-}
 
 if (!function_exists('apache_request_headers')) {
     /**
-     * Declara a função apache_request_headers caso não exista
+     * Declare apache_request_headers function if it doesn't exist
      *
      * @return array
      */
@@ -66,14 +45,15 @@ if (!function_exists('apache_request_headers')) {
 }
 
 /**
- * Trata os fatal errors que possam ocorrer no sistema
+ * Handles fatal errors that may occur in the system
+ *
  * @return void json
  */
 function catch_fatal_error(): void
 {
     $lastError     = error_get_last();
-    $captureErrors = [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR]; // Códigos de erro para tratar
-    /* Trata os erros que finalizam a execução do código */
+    $captureErrors = [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR];
+
     if ($lastError !== null && in_array($lastError['type'], $captureErrors)) {
         $file     = $lastError['file'];
         $fileLine = $lastError['line'];

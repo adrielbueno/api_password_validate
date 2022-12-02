@@ -7,17 +7,10 @@ define('ABSOLUTE_MAIN_DIR', dirname(__FILE__));
 require_once 'app/core/globals/functions.php';
 require_once 'app/core/config/server.php';
 
-/**
- * Captura fatal errors não tratados da aplicação
- */
 register_shutdown_function('catch_fatal_error');
 
-/** Inclui os arquivos de mensageria */
+require_once 'app/core/handlers/middlewares/Filter.php';
 
-
-require_once 'app/core/handlers/middlewares/Validacao.php';
-
-/** Inclui os arquivos de rotas */
 requireRouteFiles();
 
 try {

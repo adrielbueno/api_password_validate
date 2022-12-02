@@ -3,11 +3,11 @@
 namespace App\Core\Utils;
 
 class Str
-{   
+{
 
     /**
-     * Formata a url para o padrão
-
+     * Format the url to a pattern
+     *
      * @param string $url
      * @return string
      */
@@ -16,5 +16,4 @@ class Str
         $url = explode('?', $url);
         return preg_replace('/\/$/', '', preg_replace('/^\//', '', trim($url[0])));
     }
-   
 }

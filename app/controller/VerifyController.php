@@ -8,8 +8,8 @@ use App\Modules\PasswordRules\Validation;
 class VerifyController
 {
     /**
-     * É a principal função do controller. Recebe a palavra e através de outras funções processa  o resultado e retorna.
-     *
+     * Validates the password received in the route
+     * @param object $input
      * @return string
      */
     public function validatePassword($input): string
@@ -19,7 +19,7 @@ class VerifyController
 
         $validation = new Validation();
 
-        $noMatch = $validation->validatePasswordWithRules($password, $rulesList);       
+        $noMatch = $validation->validatePasswordWithRules($password, $rulesList);
 
         $verify = $noMatch ? false : true;
 

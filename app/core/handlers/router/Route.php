@@ -17,7 +17,12 @@ class Route
         $this->pathParams = $pathParams;
     }
 
-    public function getCallback()
+    /**
+     * Returns the callback
+     * 
+     * @return Closure
+     */
+    public function getCallback(): Closure
     {
         return $this->callback;
     }

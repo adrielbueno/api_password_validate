@@ -8,7 +8,7 @@ if ($request->getMethod() === 'GET') {
     $json = json_encode($_GET);
 }
 
-$header = $request->lowerCaseHeader();
+$header = $request->getLowerCaseHeader();
 
 $requisicao = substr($_GET['url'], -1) === '/'
     ? '/' . $_GET['url'] . $_SERVER['REQUEST_METHOD']

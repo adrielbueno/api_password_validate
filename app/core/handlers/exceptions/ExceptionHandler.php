@@ -14,18 +14,18 @@ class ExceptionHandler
     protected array $data;
 
     public function __construct(
-        Throwable $exception,        
+        Throwable $exception,
         int $statusCode = 500,
         array $data = []
     ) {
-        $this->exception = $exception;        
+        $this->exception = $exception;
         $this->statusCode = $statusCode;
         $this->response = new Response();
         $this->data = $data;
     }
 
     /**
-     * Exibe uma mensagem com os detalhes de uma exception
+     * Displays a message with the details of an exception
      *
      * @return void
      */
@@ -39,12 +39,17 @@ class ExceptionHandler
         );
     }
 
+    /**
+     * Returns the details of an exception
+     *
+     * @return array
+     */
     private function details(): array
     {
         $details["dateTime"] = date('y-m-d H:i:s');
         $details["details"] = [
             "file"    => $this->exception->getFile(),
-            "line"    => $this->exception->getLine(),            
+            "line"    => $this->exception->getLine(),
             "code"    => $this->exception->getCode(),
             "trace"   => $this->exception->getTrace()
         ];
@@ -54,7 +59,7 @@ class ExceptionHandler
         }
 
         if ($this->exception instanceof DefaultException) {
-            $this->statusCode = 400;            
+            $this->statusCode = 400;
         }
 
         return $details;

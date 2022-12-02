@@ -17,8 +17,8 @@ class Validation
     ];
 
     /**
-     * Description
-     * aqui
+     * Validate the password with a list of rules
+     * 
      * @param string $password
      * @param array $rulesList
      * @return array
@@ -39,7 +39,7 @@ class Validation
 
     /**
      * Validates the minimum number of characters in the word
-     *aqui
+     *
      * @param string $password
      * @param int $minimum
      * @return bool
@@ -53,7 +53,7 @@ class Validation
 
     /**
      * Validates the minimum number of characters upper case in the word
-     *aqui
+     *
      * @param string $password
      * @param int $minimum
      * @return bool
@@ -66,8 +66,8 @@ class Validation
     }
 
     /**
-     * Validates the minimum number of characters upper case in the word
-     *aqui
+     * Validates the minimum number of characters lower case in the word
+     *
      * @param string $password
      * @param int $minimum
      * @return bool
@@ -80,8 +80,8 @@ class Validation
     }
 
     /**
-     * Validates the minimum number of characters upper case in the word
-     *aqui
+     * Validates the minimum number of digits in the word
+     *
      * @param string $password
      * @param int $minimum
      * @return bool
@@ -94,8 +94,8 @@ class Validation
     }
 
     /**
-     * Validates the minimum number of characters upper case in the word
-     *aqui
+     * Validates the minimum number of special characters in the word
+     *
      * @param string $password
      * @param int $minimum
      * @return bool
@@ -108,8 +108,8 @@ class Validation
     }
 
     /**
-     * Validates the minimum number of characters upper case in the word
-     *aqui
+     * Validates equal letters in sequence in the word
+     *
      * @param string $password
      * @return bool
      */

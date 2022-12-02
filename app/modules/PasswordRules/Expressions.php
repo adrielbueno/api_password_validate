@@ -14,8 +14,10 @@ class Expressions
     private const EXPRESSION_NO_REPEAT         = '/(.)\1+/';
 
     /**
-     * aqui
+     * Returns an expression with a defined minimum value
      *
+     * @param string $rule
+     * @param string $minimum
      * @return string
      */
     public static function getExpressionWithMinimum(string $rule, string $minimum): string
@@ -26,8 +28,9 @@ class Expressions
     }
 
     /**
-     * aqui
+     * Returns an expression
      *
+     * @param string $rule
      * @return string
      */
     public static function getExpression(string $rule): string
@@ -36,7 +39,7 @@ class Expressions
     }
 
     /**
-     * aqui
+     * Returns all expressions
      *
      * @return array
      */

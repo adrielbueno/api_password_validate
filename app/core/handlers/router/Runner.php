@@ -22,7 +22,7 @@ class Runner
     }
 
     /**
-     * Executa o projeto
+     * Run the project
      *
      * @return void
      */
@@ -43,27 +43,17 @@ class Runner
     }
 
     /**
+     * Returns the route
      *
      * @return Route
      */
     private function getRoute(): Route
     {
-        /**
-         * Rotas sem path parameter
-         * @var ?Route $route
-         */
         $route = @$this->router->getRoutes(false)[$this->url];
         if ($route !== null) {
             return $route;
         }
 
-        /**
-         * Nome da rota declarada
-         * @var string $routeName
-         *
-         * Objeto da rota declarada
-         * @var Route $route
-         */
         foreach (@$this->router->getRoutes(true) as $routeName => $route) {
             $routeParts = explode('/', $routeName);
 

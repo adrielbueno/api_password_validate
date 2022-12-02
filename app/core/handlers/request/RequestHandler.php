@@ -6,10 +6,11 @@ class RequestHandler
 {
     private static ?self $instance = null;
 
-    private function __construct()
-    {
-    }
-
+    /**
+     * Returns an instance of RequestHandler
+     *
+     * @return RequestHandler
+     */
     public static function getInstance()
     {
         self::$instance = new RequestHandler();
@@ -17,7 +18,9 @@ class RequestHandler
     }
 
     /**
-     * Retorna o endpoint da request
+     * Returns the endpoint of the request
+     *
+     * @return string
      */
     public function getUrl(): string
     {
@@ -25,7 +28,9 @@ class RequestHandler
     }
 
     /**
-     * Retorna o método da requisição
+     * Returns the method of the request
+     *
+     * @return string
      */
     public function getMethod(): string
     {
@@ -33,7 +38,8 @@ class RequestHandler
     }
 
     /**
-     * Retorna um array com os dados recebidos na requisição
+     * Returns an array with the data received in the request
+     *
      * @return array
      */
     public function getData(): array
@@ -42,7 +48,8 @@ class RequestHandler
     }
 
     /**
-     * Retorna um objeto com os dados recebidos na requisição
+     * Returns an object with the data received in the request
+     *
      * @return object
      */
     public function getObj(): object
@@ -51,7 +58,8 @@ class RequestHandler
     }
 
     /**
-     * Retorna um json com os dados recebidos na requisição
+     * Returns a json with the data received in the request
+     *
      * @return string
      */
     public function getJson(): string
@@ -59,7 +67,12 @@ class RequestHandler
         return @$GLOBALS['json'] ?? '';
     }
 
-    public function lowerCaseHeader()
+    /**
+     * Returns header in lower case
+     *
+     * @return array
+     */
+    public function getLowerCaseHeader(): array
     {
         $header = apache_request_headers();
         foreach ($header as $key => $h) {
@@ -68,7 +81,13 @@ class RequestHandler
         return $header;
     }
 
-    public function getPathParams(string $url)
+    /**
+     * Returns path parameters
+     *
+     * @param string $url
+     * @return array
+     */
+    public function getPathParams(string $url): array
     {
         $pathParams = [];
         foreach (explode('/', $url) as $key => $value) {
@@ -77,15 +96,5 @@ class RequestHandler
             }
         }
         return $pathParams;
-    }
-
-    public static function instance(): self
-    {
-        return self::$instance ??= new self();
-    }
-
-    public function getIp(): string
-    {
-        return $_SERVER['REMOTE_ADDR'];
     }
 }
