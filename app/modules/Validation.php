@@ -8,6 +8,41 @@ use App\Modules\PasswordRules\Types;
 
 class Validation
 {
+    private const DYNAMIC_MAPPING_RULES = [
+        Types::MIN_SIZE          => 'validateMinSize',
+        Types::MIN_UPPER_CASE    => 'validateMinUpperCase',
+        Types::MIN_LOWER_CASE    => 'validateMinLowerCase',
+        Types::MIN_DIGIT         => 'validateMinDigit',
+        Types::MIN_SPECIAL_CHARS => 'validateMinSpecialChars',
+        Types::NO_REPEAT         => 'validateNoRepeted'
+    ];
+
+    /**
+     * Description
+     * aqui
+     * @param string $password
+     * @param array $rulesList
+     * @return array
+     */
+    private function validatePasswordWithRules(string $password, array $rulesList): array
+    {
+        $noMatch = [];
+
+        foreach ($rulesList as $rule) {
+            $nameRule    = $rule->rule;
+            $minimumValue = $rule->value;
+
+            $nameFunction = self::DYNAMIC_MAPPING_RULES[$nameRule];
+
+            if(!$this->$nameFunction($password, $minimumValue))
+            {
+                array_push($noMatch, $nameRule);
+            }
+        }
+
+        return $noMatch;
+    }
+
     /**
      * Validates the minimum number of characters in the word
      *aqui
@@ -90,8 +125,4 @@ class Validation
 
         return !preg_match($rule, $password);
     }
-
-    
-
-
 }
