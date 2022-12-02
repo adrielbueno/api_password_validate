@@ -26,7 +26,7 @@ class Validation
     public  function validatePasswordWithRules(string $password, array $rulesList): array
     {
         $noMatch = [];
-
+        // teste
         foreach ($rulesList as $rule) {
             $nameRule    = $rule->rule;
             $minimumValue = $rule->value;
