@@ -38,26 +38,11 @@ Nela temos configurações do projeto, controllers, core, módulos e rotas
 		**/app/core/handlers/response:** Tratamento das responses do sistema;  
 		**/app/core/handlers/router:** Ferramenta para gerenciamento das rotas;  
 		**/app/core/utils:** Classes de utilidade;  
-	**/app/modules:** Contém as mensagens de sucesso e erro do sistema. As mensagens são separadas em pastas relacionadas aos seus respectivos módulos, tais como usuário, transação, pagamentos e etc.  
+	**/app/modules:** Regra de negócio de forma segmentada 
 	
 
 #### /docs
 Guarda os arquivos relacionados à documentação, regras de negócio, collections e etc...
 
-#### /fly
-Biblioteca para exibição de imagens.
-
-#### /img
-Imagens de usuários
-
-#### /logs
-Arquivos de logs
-
 #### /vendor
 Pasta gerada automaticamente pelo composer
-
-# Documentação
-
-Para ver os recursos utilizados e soluções adotadas no projeto consulte a documentação:
-
-**docs/Documentacao.pdf**
