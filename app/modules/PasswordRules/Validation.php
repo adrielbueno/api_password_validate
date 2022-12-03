@@ -62,6 +62,7 @@ class Validation
     private function validateMinUpperCase(string $password, int $minimum): bool
     {
         $rule = Expressions::getExpressionWithMinimum(Types::MIN_UPPER_CASE, $minimum);
+        $password = preg_replace('/[^A-Z ]/', '', $password);
 
         return preg_match($rule, $password);
     }
@@ -76,6 +77,7 @@ class Validation
     private function validateMinLowerCase(string $password, int $minimum): bool
     {
         $rule = Expressions::getExpressionWithMinimum(Types::MIN_LOWER_CASE, $minimum);
+        $password = preg_replace('/[^a-z ]/', '', $password);
 
         return preg_match($rule, $password);
     }

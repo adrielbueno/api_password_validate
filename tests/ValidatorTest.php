@@ -3,9 +3,9 @@
 use App\Modules\PasswordRules\Validation;
 use PHPUnit\Framework\TestCase;
 
-class AverageTest extends TestCase
+class ValidationTest extends TestCase
 {
-    protected $Average;
+    protected $Validation;
 
     public function setUp()
     {
@@ -13,21 +13,123 @@ class AverageTest extends TestCase
         $this->validation = new Validation();
     }
 
+    /**
+     * Validates the minimum number of characters in the word
+     * The result of function validateMinSize should true
+     */
+    public function testIfItWillReturnTrueAnMinSize()
+    {
+        $password = "abc";
+        $minimum = 3;
+        $result = $this->invokeMethod($this->validation, 'validateMinSize', [$password, $minimum]);
+        $this->assertTrue($result);
+    }
 
-
+    /**
+     * Validates the minimum number of characters in the word
+     * The result of function validateMinSize should false
+     */
+    public function testIfItWillGiveAnFalseOnMinSize()
+    {
+        $password = "ab";
+        $minimum = 3;
+        $result = $this->invokeMethod($this->validation, 'validateMinSize', [$password, $minimum]);
+        $this->assertFalse($result);
+    }
+    
+    /**
+     * Validates the minimum number of characters upper case in the word
+     * The result of function validateMinUpperCase should true
+     */
     public function testIfItWillReturnTrueAnMinUpperCase()
     {
-        $password = "anc";
+        $password = "ABC";
+        $minimum = 3;
+        $result = $this->invokeMethod($this->validation, 'validateMinUpperCase', [$password, $minimum]);
+        $this->assertTrue($result);
+    }
+
+    /**
+     * Validates the minimum number of characters upper case in the word
+     * The result of function validateMinUpperCase should false
+     */
+    public function testIfItWillGiveAnFalseOnMinUpperCase()
+    {
+        $password = "Abc";
+        $minimum = 3;
+        $result = $this->invokeMethod($this->validation, 'validateMinUpperCase', [$password, $minimum]);
+        $this->assertFalse($result);
+    }
+
+    /**
+     * Validates the minimum number of characters lower case in the word
+     * The result of function validateMinLowerCase should true
+     */
+    public function testIfItWillReturnTrueAnMinLowerCase()
+    {
+        $password = "abc";
         $minimum = 3;
         $result = $this->invokeMethod($this->validation, 'validateMinLowerCase', [$password, $minimum]);
         $this->assertTrue($result);
     }
 
-    public function testIfItWillGiveAnFalseOnMinUpperCase()
+    /**
+     * Validates the minimum number of characters lower case in the word
+     * The result of function validateMinLowerCase should false
+     */
+    public function testIfItWillGiveAnFalseOnMinLowerCase()
     {
-        $password = "AB";
+        $password = "Abc";
         $minimum = 3;
         $result = $this->invokeMethod($this->validation, 'validateMinLowerCase', [$password, $minimum]);
+        $this->assertFalse($result);
+    }
+
+    /**
+     * Validates the minimum number of digits in the word
+     * The result of function validateMinDigit should true
+     */
+    public function testIfItWillReturnTrueAnMinDigit()
+    {
+        $password = "123";
+        $minimum = 3;
+        $result = $this->invokeMethod($this->validation, 'validateMinDigit', [$password, $minimum]);
+        $this->assertTrue($result);
+    }
+
+    /**
+     * Validates the minimum number of digits in the word
+     * The result of function validateMinDigit should false
+     */
+    public function testIfItWillGiveAnFalseOnMinDigit()
+    {
+        $password = "12";
+        $minimum = 3;
+        $result = $this->invokeMethod($this->validation, 'validateMinDigit', [$password, $minimum]);
+        $this->assertFalse($result);
+    }
+
+    /**
+     * Validates the minimum number of special characters in the word
+     * The result of function validateMinSpecialChars should true
+     */
+    public function testIfItWillReturnTrueAnMinSpecialChars()
+    {
+        $password = "!@#";
+        $minimum = 3;
+        $result = $this->invokeMethod($this->validation, 'validateMinSpecialChars', [$password, $minimum]);
+        $this->assertTrue($result);
+    }
+
+    /**
+     * Validates the minimum number of special characters in the word
+     * The result of function validateMinSpecialChars should false
+     */
+    public function testIfItWillGiveAnFalseOnMinSpecialChars()
+    {
+        $password = "!@";
+        $minimum = 3;
+        $result = $this->invokeMethod($this->validation, 'validateMinSpecialChars', [$password, $minimum]);
         $this->assertFalse($result);
     }
 
