@@ -98,8 +98,23 @@ Saída:
 }
 ```
 
-## Observações
+## Lógica de desenvolvimento
+### Módulo PasswordRules
 
 O módulo **/app/modules/PasswordRules** foi construído para tirar do controller a responsabilidade
 de uma regra específica, além de facilitar a especialização da validação com a criação das classes Expressions, Types e Validation.
 
+#### Classe Expressions
+Representa as expressões regulares que são usadas como parâmetro para validação das senhas
+
+#### Classe Types
+Representa os tipos de regras definidas na prova para a senha.
+
+#### Classe Validation
+Faz a validação. Na função **validatePasswordWithRules** foi usado o recurso de mapeamento dinâmico
+para evitar muitos IFs. O array **DYNAMIC_MAPPING_RULES** relaciona o Type da regra com  o nome da
+função e, na iteração do array de regras recebido no request, as funções são chamadas.
+
+### Controller VerifyController
+Esse controller ficou com a responsabilidade de receber os parâmetros para validação, chamar a função
+principal do módulo PasswordRules, e tratar o retorno.
