@@ -1,9 +1,9 @@
-## Introdução
+# Introdução
 Esse projeto consiste na realização de uma prova de backend em php.
 
-## Configuração para executar o projeto
+# Configuração para executar o projeto
 
-# Composer
+## Composer
 
 Depois de clonar o projeto verifique se você possui o composer instalado, caso não tenha o mesmo se encontra em:
 
@@ -17,14 +17,14 @@ Caso ja tenha o composer instalado basta executar o comando:
 
 **composer update**
 
-# XAMPP
+## XAMPP
 
 Para simular um wervidor web localmente precisaremos do XAMPP ou outro software similiar. Com ele será possível executar o apache e criar o banco de dados.
 Basta instalar normalmente e inicializar o serviço do Apache.
 
 **https://www.apachefriends.org/download.html**
 
-# Diretório
+## Diretório
 
 A pasta do projeto deve ficar na pasta htdocs. Se a instalação do XAMPP foi feita em um sistema windows, este será o repositório padrão:
 
@@ -34,12 +34,12 @@ Dependendo do diretório que for definido, a url usada no POSTMAN na hora de tes
 
 **http://localhost/api_password_validate/verify**
 
-## Estrutura do projeto:
+# Estrutura do projeto:
 
-#### /
+### /
 Contém os arquivos iniciais do projeto, tais como index.php, .htaccess e configurações do git.
 
-#### /app
+### /app
 Nela temos configurações do projeto, controllers, core, módulos e rotas
 	**/app/controller:** Contém os controllers da aplicação. São os responsáveis pelas entradas e saídas da API.  
 	**/app/core:** Contém a base do projeto como configurações, handlers e classes de utilidade.  
@@ -53,10 +53,10 @@ Nela temos configurações do projeto, controllers, core, módulos e rotas
 	**/app/modules:** Tratativas específicas e segmentadas
 	
 
-#### /docs
+### /docs
 Guarda os arquivos relacionados à documentação como as collections.
 
-#### /vendor
+### /vendor
 Pasta gerada automaticamente pelo composer
 
 ### Rotas:
@@ -73,7 +73,7 @@ ResponseHandler::getJson(int $httpCode = 200, array $payload = []): string;
 ResponseHandler::printJson(int $httpCode = 200, array $payload = []): void;
 ```
 
-#### Exemplo de entrada e saída:
+### Exemplo de entrada e saída:
 Entrada:
 ```json
 {
@@ -98,23 +98,21 @@ Saída:
 }
 ```
 
-## Lógica de desenvolvimento
-### Módulo PasswordRules
+# Lógica de desenvolvimento
+## Módulo PasswordRules
 
 O módulo **/app/modules/PasswordRules** foi construído para tirar do controller a responsabilidade
 de uma regra específica, além de facilitar a especialização da validação com a criação das classes Expressions, Types e Validation.
 
-#### Classe Expressions
+### Classe Expressions
 Representa as expressões regulares que são usadas como parâmetro para validação das senhas
-
-#### Classe Types
+### Classe Types
 Representa os tipos de regras definidas na prova para a senha.
-
-#### Classe Validation
+### Classe Validation
 Faz a validação. Na função **validatePasswordWithRules** foi usado o recurso de mapeamento dinâmico
 para evitar muitos IFs. O array **DYNAMIC_MAPPING_RULES** relaciona o Type da regra com  o nome da
 função e, na iteração do array de regras recebido no request, as funções são chamadas.
 
-### Controller VerifyController
+## Controller VerifyController
 Esse controller ficou com a responsabilidade de receber os parâmetros para validação, chamar a função
 principal do módulo PasswordRules, e tratar o retorno.
