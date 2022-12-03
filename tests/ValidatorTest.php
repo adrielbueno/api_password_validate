@@ -1,6 +1,5 @@
 <?php
 
-
 use PHPUnit\Framework\TestCase;
 
 class AverageTest extends TestCase
@@ -9,13 +8,12 @@ class AverageTest extends TestCase
 
     public function setUp()
     {
-        
+
     }
 
     public function testTest()
     {
-        
+
         $this->assertEquals(true, true);
     }
-
 }
