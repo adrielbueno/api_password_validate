@@ -50,11 +50,13 @@ Nela temos configurações do projeto, controllers, core, módulos e rotas
 		**/app/core/handlers/router:** Ferramenta para gerenciamento das rotas;  
 		**/app/core/utils:** Classes de utilidade;  
 	**/app/routes:** Arquivo com endpoint das rotas;
-	**/app/modules:** Tratativas específicas e segmentadas
-	
+	**/app/modules:** Tratativas específicas e segmentadas	
 
 ### /docs
 Guarda os arquivos relacionados à documentação como as collections.
+
+### /tests
+Arquivos de teste unitário
 
 ### /vendor
 Pasta gerada automaticamente pelo composer
@@ -98,6 +100,14 @@ Saída:
 }
 ```
 
+# Teste Unitário - PHPUnit
+O teste unitário foi desenvolvido para testar de modo individual as funções de validação.
+Para executar o teste execute no projeto o seguinte comando via terminal.
+
+**./vendor/bin/phpunit**
+
+É extramamente importante que o composer tenha sido atualizado para baixar as dependências do
+projeto e assegurar que tudo seja executado corretamente.
 # Lógica de desenvolvimento
 ## Módulo PasswordRules
 
