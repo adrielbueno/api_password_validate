@@ -25,7 +25,7 @@ class Validation
      * @return array
      */
     public function validatePasswordWithRules(string $password, array $rulesList): array
-    {
+    {print_r($rulesList);
         return array_reduce($rulesList, function ($carry, $rule) use ($password) {
             $nameRule     = $rule->rule;
             $minimumValue = $rule->value;

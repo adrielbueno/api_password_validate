@@ -133,6 +133,28 @@ class ValidationTest extends TestCase
         $this->assertFalse($result);
     }
 
+     /**
+     * Validates equal letters in sequence in the word
+     * The result of function validateNoRepeted should true
+     */
+    public function testIfItWillReturnTrueAnNoRepeted()
+    {
+        $password = "abc";
+        $result = $this->invokeMethod($this->validation, 'validateNoRepeted', [$password]);
+        $this->assertTrue($result);
+    }
+
+    /**
+     * Validates equal letters in sequence in the word
+     * The result of function validateNoRepeted should false
+     */
+    public function testIfItWillGiveAnFalseOnNoRepeted()
+    {
+        $password = "aab";
+        $result = $this->invokeMethod($this->validation, 'validateNoRepeted', [$password]);
+        $this->assertFalse($result);
+    }
+
     /**
      * Call protected/private method of a class.
      *
